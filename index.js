@@ -5,7 +5,6 @@
     var envelopeTop = document.getElementById("top");
     var envelopePocket = document.getElementById("pocket");
     var card = document.getElementById("card");
-    var msg1 = document.getElementById("msg1");
     var msg2 = document.getElementById("msg2");
     var msg3 = document.getElementById("msg3")
 
@@ -36,7 +35,6 @@
             envelopePocket.style.zIndex = 0;
             envelopeTop.style.zIndex = 0;
             card.style.zIndex = 6;
-            msg1.style.color = "transparent";
             card.classList.add("put");
             card.addEventListener("animationend", function() {
                 card.style.transition = 'none';
@@ -45,7 +43,6 @@
                 card.classList.add("final");
                 envelope.style.cursor = "default";
                 envelopePocket.style.cursor = "pointer";
-                msg2.style.color = "#1c4966";
                 msg3.style.color = "black";
             })
         })
