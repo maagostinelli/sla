@@ -106,13 +106,9 @@ body {
    transform: rotateY(180deg) scale(1.5);
  }
 
- #msg1 {
-    margin-top: 3rem;
- }
-
  #msg2 {
-     margin-top: 0rem;
-     color: transparent;
+     margin-top: 5rem;
+     color:var(--left-blue);
  }
 
  #msg3 {
