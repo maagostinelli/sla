@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;700&family=Press+Start+2P&display=swap');
+
+html{
+    --width-env: 40rem;
+    --height-env: 30rem;
+    --dark-blue: #0e2433;
+    --bottom-right-blue: #296d98;
+    --left-blue: #1c4966;
+    font-size: 62.5%;
+   }
+
+body {
+    background-color: #121210;
+    overflow: hidden;
+}
+
+/*----------ENVELOPE----------*/
+.envelope {
+    position: relative;
+    width: var(--width-env);
+    height: var(--height-env);
+    margin-left: auto;
+    margin-right: auto;
+    top: 30rem;
+
+    background-color: var(--bottom-right-blue);
+    box-shadow: -0.6rem 0.5rem 1.2rem .4rem rgb(0 0 0 / 46%); 
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    transform-style: preserve-3d;
+    perspective: 100rem;
+    transition: transform 600ms;
+    cursor: pointer;
+}
+
+.env {
+    position:absolute;
+    height: 0rem;
+    width: 0;
+}
+
+.env.top {
+    border-left: 20rem solid transparent;
+    border-right: 20rem solid transparent;
+    border-bottom: 15rem solid transparent ;
+    border-top: 15rem solid var(--bottom-right-blue);
+    transform-origin: top;
+    z-index: 3;
+}
+
+.env.pocket {
+    border-left: 20rem solid var(--left-blue);
+    border-right: 20rem solid var(--dark-blue);
+    border-bottom: 15rem solid var(--dark-blue) ;
+    border-top: 15rem solid transparent;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    z-index: 3;
+}
+
+.card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*------------CARD------------*/
+
+.card-front-back{
+    width: 90%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 600ms;
+    cursor:pointer;
+    
+    text-align:center;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1.5rem;
+    line-height: 100%;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front-back > .card.back{
+    transform: rotateY(180deg);
+ }
+ 
+ .back{
+   background-color: pink;
+ }
+ .front{
+   background-color:rgb(209, 216, 216);
+ }
+ 
+ .card-front-back.active{
+   transform: rotateY(180deg) scale(1.5);
+ }
+
+ #msg2 {
+     color: transparent;
+ }
+
+ #msg3 {
+     color: transparent;
+     font-size: 1rem;
+ }
+
+
+/*----------ANIMATIONS----------*/
+@keyframes pullCard {
+    0% {
+        transform: translateY(-10rem);
+    }
+    35% {
+        transform: translateY(-20rem);
+    }
+    70% {
+        transform: translateY(-30rem);
+    }
+    100% {
+        transform: translateY(-30rem);
+    }
+}
+
+@keyframes putCard {
+    0% {
+        transform: translateY(-30rem) scale(1);
+    }
+    25% {
+        transform: translateY(-30rem) scale(1.1);
+    }
+    50% {
+        transform: translateY(-20rem) scale(1.2);
+    }
+    75% {
+        transform: translateY(-10rem) scale(1.4);
+    }
+    100% {
+        transform: translateY(0rem) scale(1.5);
+    }
+}
+  
+/*----------FUNCIONALITIES----------*/
+.open {
+    transform: rotateX(180deg);
+    transition: transform 0.4s ease;
+    z-index: 1;  /*behind everything*/
+}
+
+.close {
+    transform: rotateX(0deg);
+    transition: transform 0.4s ease 0.4s;
+    z-index: 3;  /*on top of everything*/
+}
+
+.in {
+    transform: translateY(0rem);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.out-partial {
+    transform: translateY(-4rem);
+    transition: transform 0.4s ease 0.4s;
+    z-index: 2;
+}
+
+.out {
+    transform: translateY(0rem);
+    transition: transform 0.4s ease;
+    z-index: 4;
+}
+
+.pull {
+    animation-name: pullCard;
+    animation-timing-function: linear;
+    animation-duration: .6s;
+}
+
+.put {
+    animation-name: putCard;
+    animation-timing-function: linear;
+    animation-duration: .6s;
+}
+
+.final{
+    z-index: 6;
+    transform: translateY(0rem) scale(1.5);
+}
