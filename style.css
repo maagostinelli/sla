@@ -93,22 +93,25 @@ body {
     backface-visibility: hidden;
 }
 
+.front {
+    background-image: url(./assets/fundo.png);
+    background-size: contain;
+}
+
 .card-front-back > .card.back{
     transform: rotateY(180deg);
- }
- 
- .back{
-   background-color: pink;
- }
- .front{
-   background-color:rgb(209, 216, 216);
  }
  
  .card-front-back.active{
    transform: rotateY(180deg) scale(1.5);
  }
 
+ #msg1 {
+    margin-top: 3rem;
+ }
+
  #msg2 {
+     margin-top: 0rem;
      color: transparent;
  }
 
@@ -198,4 +201,5 @@ body {
 .final{
     z-index: 6;
     transform: translateY(0rem) scale(1.5);
+    box-shadow: -0.6rem 0.5rem 1.2rem .4rem rgb(0 0 0 / 46%);
 }
